@@ -16,7 +16,7 @@
 */
 #include "kmp.h"
 
-static int kmp_compute_prifex(const char *s, int slen)
+static int kmp_compute_prefix(const char *s, int slen)
 {
 	int i ;
 	for (i = 1; i <slen;i++)
@@ -56,7 +56,7 @@ KMP_MATCH * kmp_init(const char*s, int slen)
 
 	for (i = 0; i < pkmp->string_len; i++)
 	{
-		pkmp->jump[i] = kmp_compute_prifex(pkmp->string, i + 1);
+		pkmp->jump[i] = kmp_compute_prefix(pkmp->string, i + 1);
 	}
 
 	return pkmp;
